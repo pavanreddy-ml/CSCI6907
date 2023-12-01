@@ -200,13 +200,13 @@ scaled_df = pd.DataFrame(scaler.fit_transform(df_single_class), columns=df_singl
 ana_df = pd.DataFrame(scaler.transform(ana_df), columns=ana_df.columns)
 
 # Baseline model
-# print("Starting the execution of baseline model")
-# ocsvm = OneClassSVM(gamma='auto', nu=0.1)
-# ocsvm.fit(scaled_df)
-# predictions = ocsvm.predict(pd.concat([ana_df.iloc[:500], scaled_df[:500]]))
-# predictions[predictions == -1] = 0
-# baseline_model_accuracy = sklearn.metrics.accuracy_score(predictions, [0]*500 + [1]*500)
-# print(f"Accuracy for the baseline model OneClass SVM is: {baseline_model_accuracy}")
+print("Starting the execution of baseline model")
+ocsvm = OneClassSVM(gamma='auto', nu=0.1)
+ocsvm.fit(scaled_df)
+predictions = ocsvm.predict(pd.concat([ana_df.iloc[:500], scaled_df[:500]]))
+predictions[predictions == -1] = 0
+baseline_model_accuracy = sklearn.metrics.accuracy_score(predictions, [0]*500 + [1]*500)
+print(f"Accuracy for the baseline model OneClass SVM is: {baseline_model_accuracy}")
 
 # AnoGAN model
 print("Starting the execution of CT-GAN")
@@ -240,9 +240,9 @@ mse = tf.reduce_mean(tf.abs(generated_sample - nor_sample))
 print(mse)
 
 # PARAMS
-NI=10     # NUM ITERATION FOR NOISE OPTIMIZATION
-LR=2        # LEARNING RATE FOR NOISE OPTIMIZATION
-N = 20     # NUMS SAMPLE OF EACH CLASS FOR TEST
+NI = 1000       # NUM ITERATION FOR NOISE OPTIMIZATION
+LR = 0.1        # LEARNING RATE FOR NOISE OPTIMIZATION
+N = 50          # NUMS SAMPLE OF EACH CLASS FOR TEST
 
 # Test on N Anomaly Samples
 print("Starting generating N anomaly samples...")
@@ -303,7 +303,7 @@ for base in tqdm(range(10000, 100000000, 1000000)):
     if best_accuracy > overall_best_accuracy:
         overall_best_accuracy = best_accuracy
         
-print(f"The overall best accuracy is {overall_best_accuracy}")
+print(f"The overall best accuracy for our AnoGAN model is {overall_best_accuracy}")
 
 import seaborn as sns
 
