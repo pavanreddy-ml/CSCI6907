@@ -3,23 +3,57 @@
 
 This repository contains code for training a Tabular GAN (Generative Adversarial Network) for anomaly detection using TensorFlow. The Tabular GAN is used to generate synthetic samples that are similar to a given dataset, and it can be applied to detect anomalies by measuring the dissimilarity between the original and generated samples.
 
+
 ## Installation
 
-Before using the code, you need to install the required dependencies. You can do this by running the following commands:
+To run this project, you need to set up a Python environment with the required dependencies. We recommend using a virtual environment to isolate project dependencies. Follow these steps to get started:
 
-1. **Install TensorFlow, Pandas, NumPy, and Matplotlib**:
-   You can install these libraries using pip:
+### 1. Clone the Repository
 
-   ```
-   pip install tensorflow pandas numpy matplotlib
-   ```
+```bash
+git clone https://github.com/repo.git
+cd your-repository
+```
 
-2. **Install wget and tqdm**:
-   To download the dataset and display progress, you need to install wget and tqdm. Use the following command:
+### 2. Create a Virtual Environment (Optional but Recommended)
 
-   ```
-   pip install wget tqdm
-   ```
+```bash
+# Create a virtual environment (Python 3)
+python3 -m venv venv # or just python, make changes accordingly
+
+# Activate the virtual environment
+
+# On Windows
+venv\Scripts\activate
+
+# On macOS/Linux
+source venv/bin/activate
+```
+
+### 3. Install Dependencies
+
+```bash
+# Install project dependencies
+# If you have both Python2.7 and Python3 installed, you might have to use pip3
+
+pip install -r requirements.txt
+```
+
+This will install all the necessary libraries and versions specified in the `requirements.txt` file.
+
+### 4. Run the Project
+
+Now that the dependencies are installed, you can run the project using the following command:
+
+```bash
+python3 main.py
+```
+
+### Additional Notes:
+
+- If you encounter any issues during installation, please refer to the [Troubleshooting](#troubleshooting) section.
+- For advanced users or development, you may want to use [Docker](https://www.docker.com/) for containerization.
+
 
 ## Usage
 
