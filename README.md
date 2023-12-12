@@ -3,6 +3,8 @@
 
 This repository contains code for training a Tabular GAN (Generative Adversarial Network) for anomaly detection using TensorFlow. The Tabular GAN is used to generate synthetic samples that are similar to a given dataset, and it can be applied to detect anomalies by measuring the dissimilarity between the original and generated samples.
 
+> **It is preferred to run this code on Google Colab. Just upload the notebook and execute all the cells.**
+
 
 ## Installation
 
@@ -74,7 +76,7 @@ The python code is organized into several files and functions:
 4. **Models.py**: Defines the architecture of the GAN model.
 5. **Utils.py**: Contains utility functions used throughout the code.
 6. **CTGan.py**: Implements the Conditional Transformation GAN (CT-GAN) model.
-   
+
 The **main.py** script is the provided code file, which imports and utilizes functions from the mentioned files to implement the AnoGAN model.
 
 Certainly! Let's go into more detail on the "Getting Started" section, breaking down each step and providing additional explanations:
